@@ -9,7 +9,11 @@ const {
   currentWeatherLog,
   dailyWeatherLog,
 } = require('./services/log')
-const { saveToken, processDefaultCity } = require('./services/settings')
+const {
+  saveToken,
+  processDefaultCity,
+  processListOfCities,
+} = require('./services/settings')
 const { getWeather } = require('./services/data')
 
 initCli()
@@ -42,6 +46,25 @@ async function initCli() {
   if (!isEnv) await saveToken()
   require('dotenv').config({ path: ENV_PATH })
 
+  //-------------------------------------------------- Обрабатываем weather -l [-d] ----------
+  //------------------------------------------------------------------------------------------
+  if (args.l) {
+    const city = await processListOfCities(args)
+
+    if (!city) return
+    if (args.d) {
+      const weatherData = await getWeather(city, 'daily')
+      weatherData.name = city.name
+      dailyWeatherLog(weatherData)
+    } else {
+      const weatherData = await getWeather(city, 'current')
+      weatherData.name = city.name
+      currentWeatherLog(weatherData)
+    }
+
+    return
+  }
+
   //-------------------------------------------------- Обрабатываем weather -c [<city>] ------
   //------------------------------------------------------------------------------------------
   if (args.c) {
@@ -53,6 +76,23 @@ async function initCli() {
   //------------------------------------------------------------------------------------------
   if (process.argv.length === 2 || (args._.length === 0 && args.d)) {
     const city = await processDefaultCity()
+
+    if (args.d) {
+      const weatherData = await getWeather(city, 'daily')
+      weatherData.name = city.name
+      dailyWeatherLog(weatherData)
+    } else {
+      const weatherData = await getWeather(city, 'current')
+      weatherData.name = city.name
+      currentWeatherLog(weatherData)
+    }
+    return
+  }
+
+  //-------------------------------------------------- Обрабатываем weather <city> [-d] ------
+  //------------------------------------------------------------------------------------------
+  if (args._.length) {
+    const city = await processListOfCities(args)
 
     if (args.d) {
       const weatherData = await getWeather(city, 'daily')

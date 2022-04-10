@@ -5,7 +5,7 @@ const { isExist } = require('../helpers/utils')
 const { writeToken } = require('../services/io')
 const { getGeoLocation, getWeather } = require('../services/data')
 
-const token = '179c6eab64accd5dac11aa7430bd53f4'
+const token = ''
 
 async function removeTestingData(path) {
   const dir = dirname(path)
