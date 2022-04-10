@@ -1,0 +1,19 @@
+{
+  "name": "@ihvoshchevskij/weather-cli",
+  "version": "1.0.0",
+  "description": "Консольное приложение для отображения прогноза погоды",
+  "main": "index.js",
+  "bin": {
+    "weather": "index.js"
+  },
+  "scripts": {},
+  "keywords": [
+    "weather-cli"
+  ],
+  "author": "Igor Hvoshchevskij",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IHvoshchevskij/weather-cli"
+  }
+}
