@@ -6,7 +6,9 @@
   "bin": {
     "weather": "index.js"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "jest"
+  },
   "keywords": [
     "weather-cli"
   ],
@@ -15,5 +17,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/IHvoshchevskij/weather-cli"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
   }
 }
