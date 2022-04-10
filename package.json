@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "axios": "^0.26.1",
+    "cliui": "^7.0.4",
     "dotenv": "^16.0.0",
     "yargs": "^17.4.1"
   }
