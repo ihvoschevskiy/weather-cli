@@ -1,6 +1,6 @@
 {
   "name": "@ihvoshchevskij/weather-cli",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Консольное приложение для отображения прогноза погоды",
   "main": "index.js",
   "bin": {
