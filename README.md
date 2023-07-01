@@ -13,7 +13,7 @@
 ## Установка
 
 ```
-npm install -g @ihvoshchevskij/weather-cli
+npm install -g @ihvoschevskiy/weather-cli
 ```
 
 Для работы приложения необходим токен для доступа к OpenWeather api

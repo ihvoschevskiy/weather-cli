@@ -1,11 +1,11 @@
-const ui = require('cliui')()
-const { clearConsole } = require('../helpers/utils')
-const pkg = require('../package')
+const ui = require("cliui")();
+const { clearConsole } = require("../helpers/utils");
+const pkg = require("../package");
 
 function versionLog() {
-  clearConsole()
+  clearConsole();
 
-  console.log(getTitle())
+  console.log(getTitle());
 }
 
 function helpLog() {
@@ -13,17 +13,17 @@ function helpLog() {
     text: getTitle(),
     width: 80,
     padding: [0, 0, 1, 0],
-    align: 'left',
-  })
+    align: "left",
+  });
 
   ui.div({
-    text: 'Usage: weather [<city>] [options]',
-  })
+    text: "Usage: weather [<city>] [options]",
+  });
 
   ui.div({
-    text: 'Options:',
+    text: "Options:",
     padding: [1, 0, 1, 0],
-  })
+  });
 
   ui.div(
     {
@@ -45,16 +45,16 @@ function helpLog() {
              Показать список последних просмотренных городов`,
       width: 50,
     }
-  )
+  );
 
-  clearConsole()
-  console.log(ui.toString())
+  clearConsole();
+  console.log(ui.toString());
 }
 
 function getTitle() {
-  const pkg = require('../package')
-  const name = pkg.name.split('/')[1]
-  return `${name} (v.${pkg.version})`
+  const pkg = require("../package");
+  const name = pkg.name.split("/")[1];
+  return `${name} (v.${pkg.version})`;
 }
 
 function currentWeatherLog(data) {
@@ -62,15 +62,15 @@ function currentWeatherLog(data) {
     text: data.name,
     width: 35,
     padding: [1, 0, 0, 0],
-    align: 'right',
-  })
+    align: "right",
+  });
 
   ui.div({
     text: data.current.dt,
     width: 35,
     padding: [0, 0, 1, 0],
-    align: 'right',
-  })
+    align: "right",
+  });
 
   ui.div(
     {
@@ -112,33 +112,33 @@ function currentWeatherLog(data) {
              ${data.current.sunset}
              `,
       width: 10,
-      align: 'right',
+      align: "right",
     }
-  )
+  );
 
-  clearConsole()
-  console.log(ui.toString())
+  clearConsole();
+  console.log(ui.toString());
 }
 
 function dailyWeatherLog(data) {
-  const { daily } = data
+  const { daily } = data;
 
-  const headerArgs = []
-  const tempArgs = []
-  const weatherArgs = []
+  const headerArgs = [];
+  const tempArgs = [];
+  const weatherArgs = [];
 
   daily.forEach((itm) => {
     headerArgs.push({
       width: 12,
-      align: 'right',
+      align: "right",
       text: `${itm.dt}
              ${itm.w}`,
-    })
+    });
 
     tempArgs.push(
       {
         width: 6,
-        align: 'right',
+        align: "right",
         text: `
              ${itm.temp.morn}
              ${itm.temp.day}
@@ -147,7 +147,7 @@ function dailyWeatherLog(data) {
       },
       {
         width: 6,
-        align: 'right',
+        align: "right",
         text: `
              (${itm.feels_like.morn})
              (${itm.feels_like.day})
@@ -155,11 +155,11 @@ function dailyWeatherLog(data) {
              (${itm.feels_like.night})
              `,
       }
-    )
+    );
 
     weatherArgs.push({
       width: 12,
-      align: 'right',
+      align: "right",
       text: `${itm.pressure}
 
              ${itm.wind_speed}
@@ -174,15 +174,15 @@ function dailyWeatherLog(data) {
              ${itm.sunrise}
              ${itm.sunset}
              ${itm.moon_phase}`,
-    })
-  })
+    });
+  });
 
   ui.div({
     text: data.name,
     width: 116,
     padding: [1, 0, 1, 0],
-    align: 'right',
-  })
+    align: "right",
+  });
 
   ui.div(
     {
@@ -191,7 +191,7 @@ function dailyWeatherLog(data) {
       width: 20,
     },
     ...headerArgs
-  )
+  );
 
   ui.div(
     {
@@ -204,7 +204,7 @@ function dailyWeatherLog(data) {
       width: 20,
     },
     ...tempArgs
-  )
+  );
 
   ui.div(
     {
@@ -227,10 +227,10 @@ function dailyWeatherLog(data) {
       width: 20,
     },
     ...weatherArgs
-  )
+  );
 
-  clearConsole()
-  console.log(ui.toString())
+  clearConsole();
+  console.log(ui.toString());
 }
 
 module.exports = {
@@ -238,4 +238,4 @@ module.exports = {
   helpLog,
   currentWeatherLog,
   dailyWeatherLog,
-}
+};
