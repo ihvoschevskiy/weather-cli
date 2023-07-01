@@ -1,7 +1,7 @@
 {
-  "name": "@ihvoshchevskij/weather-cli",
-  "version": "1.0.3",
-  "description": "Консольное приложение для отображения прогноза погоды",
+  "name": "@ihvoschevskiy/weather-cli",
+  "version": "1.0.0",
+  "description": "Консольное приложение для показа прогноза погоды",
   "main": "index.js",
   "bin": {
     "weather": "index.js"
@@ -12,20 +12,23 @@
   "keywords": [
     "weather-cli"
   ],
-  "author": "Igor Hvoshchevskij",
+  "author": "Igor` Hvoschevskiy",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/IHvoshchevskij/weather-cli"
-  },
-  "devDependencies": {
-    "jest": "^27.5.1"
+    "url": "https://github.com/ihvoschevskiy/weather-cli"
   },
   "dependencies": {
-    "axios": "^0.26.1",
-    "cliui": "^7.0.4",
-    "dotenv": "^16.0.0",
+    "axios": "^1.4.0",
+    "cliui": "^8.0.1",
+    "dotenv": "^16.3.1",
     "enquirer": "^2.3.6",
-    "yargs": "^17.4.1"
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
+  },
+  "overrides": {
+    "semver": "7.5.3"
   }
 }
