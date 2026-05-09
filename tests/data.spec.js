@@ -1,7 +1,7 @@
 const { getGeoLocation, getWeather } = require("../services/data");
 const { ENV_PATH } = require("../services/constants");
 
-require("dotenv").config({ path: ENV_PATH });
+require("dotenv").config({ path: ENV_PATH, quiet: true });
 
 const itIf = () => {
   return process.env.OPEN_WEATHER_TOKEN ? it : it.skip;

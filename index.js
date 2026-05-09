@@ -47,7 +47,7 @@ async function initCli() {
   //------------------------------------------------------------------------------------------
   const isEnv = await isExist(ENV_PATH);
   if (!isEnv) await saveToken();
-  require("dotenv").config({ path: ENV_PATH });
+  require("dotenv").config({ path: ENV_PATH, quiet: true });
 
   //-------------------------------------------------- Обрабатываем weather -l [-d] ----------
   //------------------------------------------------------------------------------------------
