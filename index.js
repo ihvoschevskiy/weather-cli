@@ -16,7 +16,10 @@ const {
 } = require("./services/settings");
 const { getWeather } = require("./services/data");
 
-initCli();
+initCli().catch((err) => {
+  console.error(err?.message || err);
+  process.exitCode = 1;
+});
 
 async function initCli() {
   //-------------------------------------------------- Обрабатываем weather -v ---------------

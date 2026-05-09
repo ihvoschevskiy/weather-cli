@@ -20,7 +20,7 @@ describe("data.js", () => {
       async () => {
         const data = await getGeoLocation("abakan");
         expect(data[0]).toEqual(city);
-      }
+      },
     );
     itIf()("проверит количество элементов в списке городов", async () => {
       expect(await getGeoLocation("abakan")).toHaveLength(1);
@@ -34,10 +34,10 @@ describe("data.js", () => {
       expect(data).toHaveProperty("current");
     });
 
-    itIf()("вернет данные о погоде на неделю", async () => {
+    itIf()("вернет данные о погоде на 5 дней", async () => {
       const data = await getWeather(city, "daily");
       expect(data).toHaveProperty("daily");
-      expect(data.daily).toHaveLength(8);
+      expect(data.daily).toHaveLength(5);
     });
   });
 });
